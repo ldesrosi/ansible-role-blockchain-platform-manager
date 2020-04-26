@@ -16,6 +16,7 @@
     -C {{ channel.name }}
     -n {{ definition.name }}
     -v {{ definition.version }}
+    {{ '--init-required' if definition.init is defined else '' }}
     --sequence {{ sequence_number }}
     -o {{ ibp[channel.orderer.id].hostname }}:{{ ibp[channel.orderer.id].port }}
     {{ '--tls' if ibp[channel.orderer.id].protocol == 'grpcs' else '' }}

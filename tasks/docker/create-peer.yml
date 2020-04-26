@@ -148,6 +148,7 @@
       CORE_CHAINCODE_JAVA_RUNTIME: hyperledger/fabric-javaenv:2.0.0
       CORE_CHAINCODE_NODE_RUNTIME: hyperledger/fabric-nodeenv:2.0.0
       CORE_CHAINCODE_MODE: "{{ 'net' if peer.tls.enabled else 'dev' }}"
+      CORE_CHAINCODE_EXECUTETIMEOUT: "300s"
       CORE_LEDGER_STATE_STATEDATABASE: "{{ 'CouchDB' if peer.database_type is defined and peer.database_type == 'couchdb' else 'goleveldb' }}"
       CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS: "{{
         peer.docker.couchdb.hostname + ':5984' if peer.database_type is defined and peer.database_type == 'couchdb' else ''
